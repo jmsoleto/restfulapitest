@@ -19,7 +19,7 @@ var port = process.env.PORT || 8080;
 
 // BASE DE DATOS
 // Conectamos con la base de datos.
-mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o')
+mongoose.connect('localhost:27017/bears')
 
 // ENRUTADOR
 
