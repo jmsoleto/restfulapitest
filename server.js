@@ -5,6 +5,8 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+var Bear = require('./app/models/Bear');
 
 //Hacemos que express use body-parser
 
@@ -14,6 +16,10 @@ app.use(bodyParser.json());
 //Seteamos el puerto de entrada de la app
 
 var port = process.env.PORT || 8080;
+
+// BASE DE DATOS
+// Conectamos con la base de datos.
+mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o')
 
 // ENRUTADOR
 
