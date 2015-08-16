@@ -25,12 +25,20 @@ mongoose.connect('mongodb://node:node@novus.modulusmongo.net:27017/Iganiq8o')
 
 var router = express.Router();
 
+//Cada vez que recibamos cualquier petición mostramos un log
+router.use(function(req,res,next){
+  console.log("Se ha recibido una petición");
+  next();
+})
+
 // Esto setea una prueba para comprobar que todo esta instalado correctamente. Se puede acceder a ella
 // a traves de http://localhost:8080/api
 
 router.get('/', function(req,res){
   res.json({message:'Si puedes leer esto es que todo esta bien montado'})
 })
+
+
 
 //REGISTRO DE RUTAS
 //todas las rutas de la api estaran en la ruta /api
