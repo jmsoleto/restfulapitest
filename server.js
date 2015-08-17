@@ -65,6 +65,32 @@ router.route('/bears')
         })
       })
 
+
+router.route('/bears/:bears_id')
+  .get(function(req,res){
+    Bear.findById(req.params.bear_id, function(err,bear){
+      if(err)
+        res.send(err);
+
+      res.json(bear)
+    })
+  })
+  .put(function(req,res){
+    Bear.findById(req.params.bear_id, function(err,bear){
+      console.log(bear);
+      if(err)
+          res.send(err)
+
+      bear.name = req.body.name;
+      bear.save(function(err){
+        if(err)
+          res.send(err)
+
+        res.json({message:"Oso actualizado"})
+      })
+    })
+  })
+
 //INICIALIZACION DEL SERVIDOR
 
 app.listen(port);
